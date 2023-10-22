@@ -9,6 +9,8 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderCurve: 'circular',
     borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   texttitle: {
     color: '#E61320',
@@ -25,6 +27,26 @@ const styles = StyleSheet.create({
     padding: 5,
     fontStyle: 'italic',
     fontVariant: 'small-caps',
+  },
+  TouchableOpacity: {
+    height: 40,
+    width: 250,
+    color: 'black',
+    backgroundColor: '#F7054E',
+    marginVertical: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  Text: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+  TextTitle: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 50,
   },
 });
 
