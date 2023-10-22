@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
@@ -8,15 +8,21 @@ import {
   DetailListItemScreen,
   DetailListItemstyle,
 } from './src';
+import WelcomeScreen from './src/container/WelcomeScreen';
 
 const Stack = createNativeStackNavigator();
 
-function App() {
+function App(navigation) {
   return (
     <NavigationContainer style={style.container}>
       <Stack.Navigator>
         <Stack.Screen
           options={{title: 'Shopping Kart'}}
+          name="WelcomePage"
+          component={WelcomeScreen}
+        />
+        <Stack.Screen
+          options={{title: 'Shopping Kart List'}}
           name="ListItem"
           component={ListItemScreen}
         />

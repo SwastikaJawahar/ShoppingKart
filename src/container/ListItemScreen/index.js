@@ -30,8 +30,6 @@ function ListItemScreen(props) {
     setMobileModel('');
     setDetailDesc('');
   }
-
-  function detailViewFunction() {}
   return (
     <View style={{flex: 1, justifyContent: 'center'}}>
       <FlatList
