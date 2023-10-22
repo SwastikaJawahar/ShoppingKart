@@ -13,7 +13,7 @@ function ListItemScreen(props) {
       desc: 'Apple iPhone 14 with Super Retina XDR 6.1‑inch display. iPhone 14 colours - Yellow, Midnight, Purple, Starlight, (PRODUCT)RED and Blue.',
     },
     {
-      title: 'Onplus 10 Pro',
+      title: 'Oneplus 10 Pro',
       desc: 'It features a 1440p LTPO OLED panel that’s gently curved on the long edges. Its 20:9 aspect ratio is a hair taller than the S22 Plus and Pixel 6 Pro’s displays, and it matches their top refresh rate of 120Hz.',
     },
   ];
@@ -22,7 +22,7 @@ function ListItemScreen(props) {
   const [mobileModel, setMobileModel] = useState('');
   const [detaildesc, setDetailDesc] = useState('');
 
-  let newlist = {title: mobileName + ' ' + mobileModel};
+  let newlist = {title: mobileName + ' ' + mobileModel, desc: detaildesc};
 
   function addItemFunction() {
     setItemList([...itemList, newlist]);
@@ -42,7 +42,10 @@ function ListItemScreen(props) {
             <View>
               <TouchableOpacity
                 onPress={() => {
-                  props.navigation.navigate('DetailDesc');
+                  props.navigation.navigate('DetailDesc', {
+                    title: item.title,
+                    desc: item.desc,
+                  });
                 }}
                 style={styles.TouchableOpacity}>
                 <Text style={styles.Text}>{item.title}</Text>
