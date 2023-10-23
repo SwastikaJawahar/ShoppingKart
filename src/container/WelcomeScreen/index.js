@@ -5,7 +5,7 @@ function WelcomeScreen(props) {
   return (
     <View
       style={{
-        backgroundColor: '#B056E1',
+        backgroundColor: '#ffe6ff',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',

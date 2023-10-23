@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList, TouchableOpacity, TextInput} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+} from 'react-native';
 import styles from './styles';
 
 function ListItemScreen(props) {
@@ -31,54 +38,66 @@ function ListItemScreen(props) {
     setDetailDesc('');
   }
   return (
-    <View style={{flex: 1, justifyContent: 'center'}}>
-      <FlatList
-        keyExtractor={(itemList, index) => index.toString()}
-        data={itemList}
-        renderItem={({item}) => {
-          return (
-            <View>
-              <TouchableOpacity
-                onPress={() => {
-                  props.navigation.navigate('DetailDesc', {
-                    title: item.title,
-                    desc: item.desc,
-                  });
-                }}
-                style={styles.TouchableOpacity}>
-                <Text style={styles.Text}>{item.title}</Text>
-              </TouchableOpacity>
-            </View>
-          );
-        }}
-      />
+    <View style={{flex: 1}}>
+      <View style={styles.body}>
+        <FlatList
+          keyExtractor={(itemList, index) => index.toString()}
+          data={itemList}
+          renderItem={({item}) => {
+            return (
+              <View>
+                <TouchableOpacity
+                  onPress={() => {
+                    props.navigation.navigate('DetailDesc', {
+                      title: item.title,
+                      desc: item.desc,
+                    });
+                  }}
+                  style={styles.TouchableOpacity}>
+                  <Text style={styles.Text}>{item.title}</Text>
+                </TouchableOpacity>
+              </View>
+            );
+          }}
+        />
+      </View>
+
       <View style={styles.itemView}>
-        <Text style={styles.ButtonText}>Mobile Name</Text>
-        <TextInput
-          style={styles.TextInput}
-          value={mobileName}
-          placeholder="Enter Brand Name"
-          onChangeText={text => setMobileName(text)}
-        />
-        <Text style={styles.ButtonText}>Mobile Model</Text>
-        <TextInput
-          placeholder=" Enter Model "
-          value={mobileModel}
-          style={styles.TextInput}
-          onChangeText={changedtext => setMobileModel(changedtext)}
-        />
-        <Text style={styles.ButtonText}>Detail Description</Text>
-        <TextInput
-          placeholder="Enter Desc of Mobile"
-          value={detaildesc}
-          style={styles.TextInput}
-          onChangeText={changedtext => setDetailDesc(changedtext)}
-        />
-        <TouchableOpacity
-          onPress={addItemFunction}
-          style={styles.addItemButton}>
-          <Text style={styles.Text}>Add Item</Text>
-        </TouchableOpacity>
+        <Text style={styles.ButtonText}>Add New List</Text>
+        <View>
+          <Text style={styles.ButtonText}>Mobile Name</Text>
+          <TextInput
+            style={styles.TextInput}
+            value={mobileName}
+            placeholder="Enter Brand Name"
+            onChangeText={text => setMobileName(text)}
+          />
+        </View>
+        <View>
+          <Text style={styles.ButtonText}>Mobile Model</Text>
+          <TextInput
+            placeholder=" Enter Model "
+            value={mobileModel}
+            style={styles.TextInput}
+            onChangeText={changedtext => setMobileModel(changedtext)}
+          />
+        </View>
+        <View>
+          <Text style={styles.ButtonText}>Detail Description</Text>
+          <TextInput
+            placeholder="Enter Desc of Mobile"
+            value={detaildesc}
+            style={styles.TextInput}
+            onChangeText={changedtext => setDetailDesc(changedtext)}
+          />
+        </View>
+        <View>
+          <TouchableOpacity
+            onPress={addItemFunction}
+            style={styles.addItemButton}>
+            <Text style={styles.Text}>Add Item</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
